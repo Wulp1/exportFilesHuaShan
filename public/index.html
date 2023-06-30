@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../libs/dayjs.min.js"></script>
+  <title>Document</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div style="padding:0 30px 20px 30px;">
+    <div style="padding:20px 0 5;">
+      <label>报告编号：</label>
+      <input type="text" id="inputField">
+      <button onclick="getQueryData()">查询</button>
+    </div>
+    <div>
+      <label>报告总数：</label>
+      <span id="ReportsTotal"></span>
+    </div>
+    <table id="myTable">
+      <thead>
+        <tr>
+          <th>报告编号</th>
+          <th>患者姓名</th>
+          <th>设备号</th>
+          <th>开始监测时间</th>
+          <th>结束监测时间</th>
+          <th>监测时长</th>
+          <th>文件路径</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</body>
+<script src="./getData.js"></script>
+</html>
