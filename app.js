@@ -12,7 +12,7 @@ app.use(bodyParser.json()); // 解析 JSON 格式的请求体
 app.use(bodyParser.urlencoded({ extended: true })); // 解析表单数据
 
 app.use('/',exportData);
-app.use('/public',express.static("public"));
+app.use(express.static("public"));
 app.use('/',test);
 
 //404
