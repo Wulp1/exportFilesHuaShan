@@ -106,13 +106,15 @@ function getData() {
     getDataBtn.disabled = true;
    // 更改按钮文本为"正在获取数据，请勿重复点击"
     getDataBtn.textContent = '正在获取数据...';
-  var orgId = "62e76bf9286e3d30eefe03cb";
+  // 传机构数组；不传则服务端用 DEFAULT_ORG_IDS
   fetch('/reports/export', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ orgId: orgId }) // 将ID数据转换为JSON字符串并作为请求体发送
+    body: JSON.stringify({
+      orgIds: ['62e76bf9286e3d30eefe03cb']
+    })
   })
     .then(function(response) {
       if (response.ok) {

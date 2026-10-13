@@ -1,7 +1,6 @@
 const express = require('express');
 const exportData = require('./index');
 const bodyParser = require('body-parser');
-const https = require('https');
 const test = require('./test');
 
 var app = express();
@@ -11,16 +10,19 @@ const PORT = 3002;
 app.use(bodyParser.json()); // 解析 JSON 格式的请求体
 app.use(bodyParser.urlencoded({ extended: true })); // 解析表单数据
 
-app.use('/',exportData);
+app.use('/', exportData);
 app.use(express.static("public"));
-app.use('/',test);
+app.use('/', test);
 
 //404
-app.use((req,res) => {
-  res.status(404)
-})
+app.use((req, res) => {
+  res.status(404);
+});
 
-
-app.listen(PORT,() => {
+app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
-})
+  // 启动增量导出定时任务（每 10 分钟）
+  if (typeof exportData.startExportScheduler === 'function') {
+    exportData.startExportScheduler();
+  }
+});
