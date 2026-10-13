@@ -22,8 +22,6 @@ const PAGE_SIZE = 100;
 // 默认只查这些机构；可按需增删
 const DEFAULT_ORG_IDS = [
   '62e76bf9286e3d30eefe03cb',
-  '630c5577e6f69b71e92794d6',
-  '62eccf46d5534c0fbf61562d'
 ];
 
 /** 规范化机构号列表：入参优先，否则用默认数组 */
